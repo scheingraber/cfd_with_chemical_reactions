@@ -4,4 +4,4 @@
 * transport of chemical substances
 * chemical reactions of substances
 
-[![Example Output](http://archive.scheingraber.net/files/cfd.webm)](https://github.com/ChrisPara/cfd_navier_stokes_with_chemical_reaction)
+[![Visualization](http://archive.scheingraber.net/files/cfd.gif)](https://github.com/ChrisPara/cfd_navier_stokes_with_chemical_reaction)
