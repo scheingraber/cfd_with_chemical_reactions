@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<problem>
+    <name>Mixing</name>
+    <dimensions>
+        <x>20</x>
+        <y>2</y>
+    </dimensions>
+    <geometry_file>mixing.pgm</geometry_file>
+</problem>
+
+<time>
+    <step>0.05</step>
+    <max>200</max>
+    <tau>0.5</tau>
+</time>
+
+<output>
+    <prefix>mixing</prefix>
+    <dt_value>0.5</dt_value>
+</output>
+
+<sor>
+    <itermax>500</itermax>
+    <eps>0.001</eps>
+    <omega>1.7</omega>
+    <alpha>0.9</alpha>
+</sor>
+
+<constants>
+    <Reynolds>10000</Reynolds>
+    <gravitation>
+        <x>0</x>
+        <y>0.1</y>
+    </gravitation>
+    <Prandtl>1</Prandtl>
+    <beta>0.02</beta>
+    <gamma>0.5</gamma>
+</constants>
+
+<pressure>
+    <init>0</init>
+    <boundary>
+        <left>0</left>
+        <right>0</right>
+        <top>0</top>
+        <bottom>0</bottom>
+    </boundary>
+</pressure>
+
+<velocity>
+    <init>
+        <u>0</u>
+        <v>0</v>
+    </init>
+    <boundary>
+        <left type="no-slip" />
+        <right type="outflow"/>
+        <top type="no-slip" />
+        <bottom type="no-slip" />
+    </boundary>
+</velocity>
+
+<temperature>
+    <init>0</init>
+    <boundary>
+        <left type="dirichlet">0</left>
+        <right type="neumann">0</right>
+        <top type="neumann">0</top>
+        <bottom type="neumann">0</bottom>
+        <inner type="neumann">0</inner>
+    </boundary>
+</temperature>
+
+<substances>
+    <substance>
+        <name>substance 0</name>
+        <lambda>0.01</lambda>
+        <H_formation>2</H_formation>
+        <init>0</init>
+    </substance>
+    <substance>
+        <name>substance 1</name>
+        <lambda>0.01</lambda>
+        <H_formation>1.5</H_formation>
+        <init>0</init>
+    </substance>
+    <substance>
+        <name>substance 2</name>
+        <lambda>0.005</lambda>
+        <H_formation>1.7</H_formation>
+        <init>0</init>
+    </substance>
+    <substance>
+        <name>substance 3</name>
+        <lambda>0.008</lambda>
+        <H_formation>0.4</H_formation>
+        <init>0</init>
+    </substance>
+    <substance>
+        <name>substance 4</name>
+        <lambda>0.002</lambda>
+        <H_formation>1</H_formation>
+        <init>0</init>
+    </substance>
+</substances>
+
+<reactions>
+    <reaction>
+        <activation_energy back="1" forth="1" />
+        <freq_factor back="0.2" forth="2" />
+        <reagents>
+            <reagent>
+                <name>substance 0</name>
+                <exponent>1.3</exponent>
+                <stoichiometric_coeff>1</stoichiometric_coeff>
+            </reagent>
+            <reagent>
+                <name>substance 1</name>
+                <exponent>1.2</exponent>
+                <stoichiometric_coeff>1</stoichiometric_coeff>
+            </reagent>
+        </reagents>
+        <products>
+            <product>
+                <name>substance 2</name>
+                <exponent>1</exponent>
+                <stoichiometric_coeff>1</stoichiometric_coeff>
+            </product>
+        </products>
+    </reaction>
+    <reaction>
+        <activation_energy back="1" forth="1" />
+        <freq_factor back="0.1" forth="0.5" />
+        <reagents>
+            <reagent>
+                <name>substance 2</name>
+                <exponent>1.5</exponent>
+                <stoichiometric_coeff>2</stoichiometric_coeff>
+            </reagent>
+            <reagent>
+                <name>substance 3</name>
+                <exponent>2</exponent>
+                <stoichiometric_coeff>1</stoichiometric_coeff>
+            </reagent>
+        </reagents>
+        <products>
+            <product>
+                <name>substance 4</name>
+                <exponent>1.1</exponent>
+                <stoichiometric_coeff>2</stoichiometric_coeff>
+            </product>
+        </products>
+    </reaction>
+</reactions>
+

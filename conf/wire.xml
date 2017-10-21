@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<problem>
+    <name>Wire</name>
+    <dimensions>
+        <x>10</x>
+        <y>2</y>
+    </dimensions>
+    <geometry_file>wire.pgm</geometry_file>
+</problem>
+
+<time>
+    <step>0.05</step>
+    <max>30</max>
+    <tau>0.5</tau>
+</time>
+
+<output>
+    <prefix>wire</prefix>
+    <dt_value>1</dt_value>
+</output>
+
+<sor>
+    <itermax>500</itermax>
+    <eps>0.001</eps>
+    <omega>1.7</omega>
+    <alpha>0.9</alpha>
+</sor>
+
+<constants>
+    <Reynolds>1000</Reynolds>
+    <gravitation>
+        <x>0</x>
+        <y>1</y>
+    </gravitation>
+    <Prandtl>1</Prandtl>
+    <beta>0.02</beta>
+    <gamma>0.5</gamma>
+</constants>
+
+<pressure>
+    <init>0</init>
+    <boundary>
+        <left>0</left>
+        <right>0</right>
+        <top>0</top>
+        <bottom>0</bottom>
+    </boundary>
+</pressure>
+
+<velocity>
+    <init>
+        <u>0</u>
+        <v>0</v>
+    </init>
+    <boundary>
+        <left type="no-slip" />
+        <right type="outflow"/>
+        <top type="no-slip" />
+        <bottom type="no-slip" />
+    </boundary>
+</velocity>
+
+<temperature>
+    <init>0</init>
+    <boundary>
+        <left type="dirichlet">0</left>
+        <right type="neumann">0</right>
+        <top type="neumann">0</top>
+        <bottom type="neumann">0</bottom>
+        <inner type="dirichlet">10</inner>
+    </boundary>
+</temperature>

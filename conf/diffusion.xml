@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<problem>
+    <name>Diffusion problem</name>
+    <dimensions>
+        <x>20</x>
+        <y>2</y>
+    </dimensions>
+    <geometry_file>diffusion.pgm</geometry_file>
+</problem>
+
+<substances>
+    <substance>
+        <name>substance 0</name>
+        <lambda>0.5</lambda>
+        <init>
+            <file coeff="0.00392156862745098039">diffusion_C_subst0.pgm</file>
+        </init>
+    </substance>
+    <substance> <name>substance 1</name>
+        <lambda>0.2</lambda>
+        <init>
+            <file coeff="0.00392156862745098039">diffusion_C_subst1.pgm</file>
+        </init>
+    </substance>
+</substances>
+
+<time>
+    <step>0.05</step>
+    <max>60</max>
+    <tau>0.5</tau>
+</time>
+
+<output>
+    <prefix>diffusion</prefix>
+    <dt_value>0.05</dt_value>
+</output>
+
+<sor>
+    <itermax>500</itermax>
+    <eps>0.001</eps>
+    <omega>1.7</omega>
+    <alpha>0.9</alpha>
+</sor>
+
+<constants>
+    <Reynolds>1000</Reynolds>
+    <gravitation>
+        <x>0</x>
+        <y>1</y>
+    </gravitation>
+    <Prandtl>1</Prandtl>
+    <beta>0.02</beta>
+    <gamma>0.5</gamma>
+</constants>
+
+<pressure>
+    <init>0</init>
+    <boundary>
+        <left>0</left>
+        <right>0</right>
+        <top>0</top>
+        <bottom>0</bottom>
+    </boundary>
+</pressure>
+
+<velocity>
+    <init>
+        <u>0</u>
+        <v>0</v>
+    </init>
+    <boundary>
+        <left type="free-slip" />
+        <right type="free-slip"/>
+        <top type="no-slip" />
+        <bottom type="no-slip" />
+    </boundary>
+</velocity>
+
+<temperature>
+    <init>0</init>
+    <boundary>
+        <left type="neumann">0</left>
+        <right type="neumann">0</right>
+        <top type="neumann">0</top>
+        <bottom type="neumann">0</bottom>
+        <inner type="dirichlet">0</inner>
+    </boundary>
+</temperature>
