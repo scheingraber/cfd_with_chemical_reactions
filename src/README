@@ -1,0 +1,102 @@
+
+_____ PROJECT _________________________________________________________
+
+Extension of Navier-Stokes from worksheet 3 by
+* transport of temperature (w/ Boussinesq approx. for Navier-Stokes)
+* transport of chemical substances
+* chemical reactions of substances
+
+Our project simulates continuous flows using the Navier-Stokes model.
+In this project, the previously implemented model was extended to take
+the influence of heat into account. This is performed using the
+Boussinesq approximation, which neglects changes in density.
+The temperature differences directly result in the buoyancy force.
+The project also models transport (i.e., diffusion and convection) of
+an arbitrary number of chemical substances.
+These substances, together with their reaction coefficients, are defined
+inside the configuration files for the different scenarios. The initial
+distribution of these substances can be defined as a constant value over
+the whole domain or with the aid of a PGM-file.
+
+
+_____ REQUIREMENTS ____________________________________________________
+
+
+____COMPILER____
+
+This code uses C++11 features and therefore needs a recent compiler!
+It will work with g++ 4.6, but won't for all previous version of g++.
+
+
+____LIBRARIES____
+
+The following boost header files have been used:
+    boost/property_tree/xml_parser.hpp
+    boost/algorithm/string.hpp
+    boost/lexical_cast.hpp
+    boost/optional.hpp
+    boost/property_tree/ptree.hpp
+    boost/algorithm/string/replace.hpp
+
+On Debian or Ubuntu flavoured machines they are available via the
+"libboost-dev" package.
+
+The functions used are header-only library functions, and won't need
+any additional runtime files.
+
+
+
+____DEMO_PLATFORM____
+
+Don't want to install those two packages? We've set up a demo system
+for your convenience:
+
+ssh -p 2255 demo@demo.bstegmaier.de
+password: tumcfddemo
+directory: project
+
+Please remember to use an uppercase -P when specifying the port with
+sftp or scp. E.g.:
+scp -P 2255 demo@demo.bstegmaier.de:project/*vtk .
+
+
+
+_____ SCENARIOS _______________________________________________________
+
+* Rayleigh–Bénard convection
+
+  Run with: ./sim rayleigh_benard.xml
+
+  A shallow/wide container, filled with a fluid at ambient temperature
+  (e.g. T=0), is heated from below (Dirichlet, e.g. T=5) and has a
+  fixed ambient temperature at the top (Dirichlet, e.g. T=0). The
+  lateral walls are isolated (Neumann).
+  In addition, there is a small drop of another fluid inside the
+  container.
+
+  What you should see:
+  The initially produced temperature layering is unstable and soon the
+  flow evolves in regular, contra-rotating convection cells. In the
+  example provided, those patterns will be stable after some period of
+  time.
+  The added substance can be seen to move with the flow. It is being
+  slowly transported from cell to cell, which suggests, that there is
+  some exchange of fluid among them.
+
+
+* Flow in a pipe with an obstacle. Multiple reactions
+
+  Run with: ./sim mixing.xml
+
+  A pipe with a single obstacle. Fluid with T=0 is injected with a parabollic 
+  profile such that, without the chemical reactions, it produces vorticity.
+  At the right we have outflow conditions. All boundaries are isolated
+  for both temperature and concentrations. We introduce substances s0, s1, s3.
+  We have two reactions: s1 and s2 react to form s2, then, s3 and s2 react to
+  form s1 and s4.
+
+  What you should see:
+  As the reagents are placed in the pipe, they start to react. Heat production
+  caused by the reactions changes the usual flow pattern. The oscillations
+  move down and are diminished, while hot fluid goes to the ceiling and forms
+  a vortices.
