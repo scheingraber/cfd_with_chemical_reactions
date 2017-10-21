@@ -33,4 +33,4 @@ the whole domain or with the aid of a PGM-file.
   slowly transported from cell to cell, which suggests, that there is
   some exchange of fluid among them.
   
-[![Visualization](http://archive.scheingraber.net/files/cfd.gif)](https://github.com/ChrisPara/cfd_navier_stokes_with_chemical_reaction)
+![Visualization](http://archive.scheingraber.net/files/cfd.gif)
