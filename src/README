@@ -45,22 +45,6 @@ The functions used are header-only library functions, and won't need
 any additional runtime files.
 
 
-
-____DEMO_PLATFORM____
-
-Don't want to install those two packages? We've set up a demo system
-for your convenience:
-
-ssh -p 2255 demo@demo.bstegmaier.de
-password: tumcfddemo
-directory: project
-
-Please remember to use an uppercase -P when specifying the port with
-sftp or scp. E.g.:
-scp -P 2255 demo@demo.bstegmaier.de:project/*vtk .
-
-
-
 _____ SCENARIOS _______________________________________________________
 
 * Rayleigh–Bénard convection
