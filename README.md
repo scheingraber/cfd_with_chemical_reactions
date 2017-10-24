@@ -16,7 +16,7 @@ inside the configuration files for the different scenarios. The initial
 distribution of these substances can be defined as a constant value over
 the whole domain or with the aid of a PGM-file.
 
-### Rayleigh–Bénard convection
+#### Example: Rayleigh–Bénard convection
 
   A shallow/wide container, filled with a fluid at ambient temperature
   (e.g. T=0), is heated from below (Dirichlet, e.g. T=5) and has a
