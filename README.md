@@ -1,4 +1,4 @@
-## Group Project: Solver for Navier Stokes with transport of chemical substances and chemical reactions written in C++.
+## Group Project: Solver for Navier Stokes, taking heat into account, with transport of substances and chemical reactions.
 
 * transport of temperature (w/ Boussinesq approx. for Navier-Stokes)
 * transport of chemical substances
